@@ -4,11 +4,11 @@ const fs = require('fs');
 //Add Notes
 const addNote = (title, body) => {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter((note) => note.title == title);
+  const duplicateNotes = notes.find(note => note.title == title)
 
-  if (duplicateNotes.length == 0) {
+  if (!duplicateNotes) {
     
-    notes.push({
+      notes.push({
       title: title,
       body: body
     })
@@ -35,6 +35,18 @@ const removeNote = (title) => {
   }
 }
 
+
+const readNote = (title) => {
+  const notes = loadNotes();
+  const note = notes.find(no => no.title == title);
+  if (!note) {
+    console.log(chalk.red.inverse("No note found?"))
+  } else {
+    console.log("   |");
+    console.log("   |->", chalk.cyan.inverse(note.body))
+  }
+}
+//List the entire notes
 const listNotes = () => {
   const notes = loadNotes();
   console.log(chalk.yellow.inverse("Your notes: "))
@@ -73,5 +85,6 @@ module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
-  listNotes: listNotes
+  listNotes: listNotes,
+  readNote: readNote
 }
