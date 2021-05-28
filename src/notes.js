@@ -1,16 +1,15 @@
 const chalk = require('chalk')
 const fs = require('fs');
-
 //Add Notes
 const addNote = (title, body) => {
   const notes = loadNotes();
   const duplicateNotes = notes.find(note => note.title == title)
 
   if (!duplicateNotes) {
-    
       notes.push({
       title: title,
-      body: body
+      body: body,
+      date: Date.now()
     })
     saveNotes(notes);
     console.log(chalk.green.inverse('New note added.'))
@@ -42,7 +41,7 @@ const readNote = (title) => {
   if (!note) {
     console.log(chalk.red.inverse("No note found?"))
   } else {
-    console.log("   |");
+    console.log("   |                                        Date: ", chalk.cyan.inverse(note.date));
     console.log("   |->", chalk.cyan.inverse(note.body))
   }
 }
@@ -50,10 +49,10 @@ const readNote = (title) => {
 const listNotes = () => {
   const notes = loadNotes();
   console.log(chalk.yellow.inverse("Your notes: "))
-  notes.forEach((element, i) => {
-    console.log(chalk.blue.inverse(`${i+1}:`, element.title))
-    console.log("   |");
-    console.log("   |->", chalk.cyan.inverse(element.body))
+  notes.forEach((note, i) => {
+    console.log(chalk.blue.inverse(`${i+1}:`, note.title))
+    console.log("   |                                        Date: ", note.date);
+    console.log("   |->", chalk.cyan.inverse(note.body))
   });
 }
 //Save notes to the JSON file
