@@ -1,5 +1,6 @@
 
 const yargs = require('yargs');
+const notes = require('./notes.js')
 
 
 yargs.version('1.1.0')
@@ -20,7 +21,7 @@ yargs.command( {
     }
   },
   handler: (argv) => {
-    console.log('Title: ', argv.title, '\nBody: ', argv.body)
+    notes.addNote(argv.title, argv.body)
   }
 })
 
