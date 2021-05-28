@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const yargs = require('yargs');
 const notes = require('./notes.js')
 
@@ -6,7 +8,7 @@ yargs.version('1.1.0')
 
 yargs.command( {
   command: 'add',
-  describe: 'Add a new note',
+  describe: 'You can add a new note',
   builder: {
     t: {
       describe: "Note title",
@@ -20,7 +22,7 @@ yargs.command( {
     }
   },
   handler: (argv) => {
-    notes.addNote(argv.title, argv.body)
+    notes.addNote(argv.t, argv.b)
   }
 })
 
@@ -35,7 +37,7 @@ yargs.command( {
     }
   },
   handler: (argv) => {
-    notes.removeNote(argv.title)
+    notes.removeNote(argv.t)
   }
 })
 
@@ -59,7 +61,7 @@ yargs.command( {
     }
   },
   handler: (argv) => {
-    notes.readNote(argv.title)
+    notes.readNote(argv.t)
   }
 })
 
