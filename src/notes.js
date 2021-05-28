@@ -77,12 +77,9 @@ const loadNotes = () => {
 }
 
 
-const getNotes = () => {
-  return "Your Notes..."
-}
 
 module.exports = {
-  getNotes: getNotes,
+
   addNote: addNote,
   removeNote: removeNote,
   listNotes: listNotes,
