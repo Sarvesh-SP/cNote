@@ -1,17 +1,25 @@
 {
   "name": "notes-app",
+  "preferGlobal": true,
+  "bin": {
+    "note": "src/server.js"
+  },
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Command line interface, which implements a notepad manager",
+  "main": "src/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarvesh-SP/Notes-CLI.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "sarveshSP",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.1",
-    "validator": "^13.6.0",
+    "minimist": "^1.2.5",
     "yargs": "^17.0.1"
   }
 }
