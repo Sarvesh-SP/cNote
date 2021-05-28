@@ -38,7 +38,7 @@
 
 <h2 align="center"> :.Documentation.: </h2>
 
-### Whynote's Commands:
+### cNote's Commands:
 
 - #### Get cNote help:
   - `note --help|-h [command]`.
