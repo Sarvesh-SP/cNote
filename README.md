@@ -1,3 +1,3 @@
-# NOTES-CLI
+# cNote
 
 - Simple cli for making notes.
