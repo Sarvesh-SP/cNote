@@ -1,6 +1,6 @@
-const chalk = require('chalk');
+
 const yargs = require('yargs');
-const notes = require('./utils.js');
+
 
 yargs.version('1.1.0')
 
