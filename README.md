@@ -56,7 +56,7 @@
   - `--help|h` flag exists to get info about this function.
 - #### Removing notes:
   - `note remove|rv <id>`,
-  - Removing task from task list with id,
+  - Removing notes from note list with id,
   - Id can be:
     - `id`, note number in note list,
     - `all`, by this way you can remove all notes from note list;
