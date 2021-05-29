@@ -1,15 +1,17 @@
 const chalk = require('chalk')
 const fs = require('fs');
+const now = require('dayjs');
+const path = require('path')
 //Add Notes
 const addNote = (title, body) => {
   const notes = loadNotes();
   const duplicateNotes = notes.find(note => note.title == title)
-
+  date = now()
   if (!duplicateNotes) {
       notes.push({
       title: title,
       body: body,
-      date: Date.now()
+      date: date.$d
     })
     saveNotes(notes);
     console.log(chalk.green.inverse('New note added.'))
@@ -50,22 +52,22 @@ const listNotes = () => {
   const notes = loadNotes();
   console.log(chalk.yellow.inverse("Your notes: "))
   notes.forEach((note, i) => {
-    console.log(chalk.blue.inverse(`${i+1}:`, note.title))
-    console.log("   |                                        Date: ", note.date);
+    console.log(chalk.blue(`${i+1}:`, note.title))
+    console.log("   |                                        Date: ", chalk.green(note.date));
     console.log("   |->", chalk.cyan.inverse(note.body))
   });
 }
 //Save notes to the JSON file
 const saveNotes = (notes) => {
   const dataJSON = JSON.stringify(notes);
-  fs.writeFileSync('../Notes/notes.json', dataJSON)
+  fs.writeFileSync(path.join(__dirname, '../Notes/notes.json'), dataJSON)
 }
 
 //Load notes from the JSON file
 const loadNotes = () => {
 
   try {
-    const buffer = fs.readFileSync('../Notes/notes.json')
+    const buffer = fs.readFileSync(path.join(__dirname, '../Notes/notes.json'))
     const stringJSON = buffer.toString();
     const data = JSON.parse(stringJSON)
     return data;
