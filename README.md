@@ -30,7 +30,7 @@
 ## Description:
 
 - Command line notebook;
-- `NOTE-CLI` is easy way to note tasks, which need to be completed;
+- `cNote` is easy way to note tasks, which need to be completed;
 - It is easy to install and easy to use;
 - It has great functionality.
 
@@ -42,6 +42,11 @@
 
 - #### Get cNote help:
   - `note --help|-h [command]`.
+  - commands are:
+  - `add`
+  - `list`
+  - `remove`
+  - `modify`
 - #### Get cNote version:
   - `note --version|-V`.
 - #### Get list of notes:
@@ -49,22 +54,26 @@
   - Options could be:
   - `--help|h` - get info about this function.
 - #### Adding notes:
-  - `note add|at`,
-  - You will need to enter:
-    - Notes's title,
-    - Content of the notes`;
+  - `note add [options]`,
+  - You will need to enter | options:
+    - `--t=`"Notes's title",
+    - `--b=`Content/Body of the notes`;
   - `--help|h` flag exists to get info about this function.
 - #### Removing notes:
   - `note remove|rv <id>`,
-  - Removing task from task list with id,
+  - Removing notes from note list with id,
   - Id can be:
     - `id`, note number in note list,
-    - `all`, by this way you can remove all notes from note list;
+    - `all`, by this way you can remove all notes from note list,
+    - `--t=`, by the title;
   - `--help|h` - get info about this method.
 - #### Modification task:
 
-  - `note modify|mod <id>`,=
-  - Yet to be added(This feature Not available)
+  - `note modify [options]`,=
+  - Options could be:
+  - `id`, based on the id,
+  - `--t`, based on the title, 
+  - Yet to be added(Above features Not available)
   - `--help|h`.
 
 <br>
