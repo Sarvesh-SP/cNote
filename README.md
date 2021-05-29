@@ -42,6 +42,11 @@
 
 - #### Get cNote help:
   - `note --help|-h [command]`.
+  - commands are:
+  - `add`
+  - `list`
+  - `remove`
+  - `modify`
 - #### Get cNote version:
   - `note --version|-V`.
 - #### Get list of notes:
