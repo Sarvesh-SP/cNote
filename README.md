@@ -30,7 +30,7 @@
 ## Description:
 
 - Command line notebook;
-- `NOTE-CLI` is easy way to note tasks, which need to be completed;
+- `cNote` is easy way to note tasks, which need to be completed;
 - It is easy to install and easy to use;
 - It has great functionality.
 
