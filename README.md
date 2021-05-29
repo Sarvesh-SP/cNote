@@ -69,7 +69,7 @@
   - `--help|h` - get info about this method.
 - #### Modification task:
 
-  - `note modify [options]`,=
+  - `note modify [options]`
   - Options could be:
   - `id`, based on the id,
   - `--t`, based on the title, 
