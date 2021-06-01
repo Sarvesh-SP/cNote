@@ -50,12 +50,16 @@ const readNote = (title) => {
 //List the entire notes
 const listNotes = () => {
   const notes = loadNotes();
-  console.log(chalk.yellow.inverse("Your notes: "))
-  notes.forEach((note, i) => {
-    console.log(chalk.blue(`${i+1}:`, note.title))
-    console.log("   |                                        Date: ", chalk.green(note.date));
-    console.log("   |->", chalk.cyan.inverse(note.body))
-  });
+  if (notes.length > 0) {
+    console.log(chalk.yellow.inverse("Your notes: "))
+    notes.forEach((note, i) => {
+      console.log(chalk.blue(`${i+1}:`, note.title))
+      console.log("   |                                        Date: ", chalk.green(note.date));
+      console.log("   |->", chalk.cyan.inverse(note.body))
+    });
+  } else {
+    console.log(chalk.yellow.inverse("No note found?"))
+  }
 }
 //Save notes to the JSON file
 const saveNotes = (notes) => {
