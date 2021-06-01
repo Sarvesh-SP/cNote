@@ -72,8 +72,8 @@ const loadNotes = () => {
 
   try {
     const buffer = fs.readFileSync(path.join(__dirname, '../Notes/notes.json'))
-    const stringJSON = buffer.toString();
-    const data = JSON.parse(stringJSON)
+    
+    const data = JSON.parse(buffer)
     return data;
   } catch (e) {
     return []
