@@ -8,6 +8,7 @@ program.version('v1.3.0').description('Command line interface, which implements 
 
 program
 .command('add')
+.alias('a')
 .requiredOption('-t, --title <type>', 'Title of the note')
 .requiredOption('-b, --body <type>', 'Body of the note')
 .description('You can add a new note')
@@ -17,6 +18,7 @@ program
 
 program
 .command('remove')
+.alias('rm')
 .requiredOption('-t, --title <type>', 'Title of the note')
 .description('You can remove an existing note')
 .action(cmd => {
@@ -25,6 +27,7 @@ program
 
 program
 .command('list')
+.alias('l')
 .description('You can list out all the notes.')
 .action(cmd => {
   notes.listNotes();
