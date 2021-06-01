@@ -1,69 +1,41 @@
 #!/usr/bin/env node
 
-const yargs = require('yargs');
+const program = require('commander');
 const notes = require('./notes.js')
 
 
-yargs.version('1.1.0')
+program.version('v1.3.0').description('Command line interface, which implements as notes manager.')
 
-yargs.command( {
-  command: 'add',
-  describe: 'You can add a new note',
-  builder: {
-    t: {
-      describe: "Note title",
-      demandOption: true,
-      type: 'string'
-    },
-    b: {
-      describe: "Body of the note",
-      demandOption: true,
-      type: 'string'
-    }
-  },
-  handler: (argv) => {
-    notes.addNote(argv.t, argv.b)
-  }
-})
+program
+.command('add')
+.requiredOption('-t, --title <type>', 'Title of the note')
+.requiredOption('-b, --body <type>', 'Body of the note')
+.description('You can add a new note')
+.action(cmd => {
+  notes.addNote(cmd.title, cmd.body)
+});
 
-yargs.command( {
-  command: 'remove',
-  describe: 'Remove a note',
-  builder: {
-    t: {
-      describe: "Remove note",
-      demandOption: true,
-      type: 'string'
-    }
-  },
-  handler: (argv) => {
-    notes.removeNote(argv.t)
-  }
-})
+program
+.command('remove')
+.requiredOption('-t, --title <type>', 'Title of the note')
+.description('You can remove an existing note')
+.action(cmd => {
+  notes.removeNote(cmd.title)
+});
 
+program
+.command('list')
+.description('You can list out all the notes.')
+.action(cmd => {
+  notes.listNotes();
+});
 
-yargs.command( {
-  command: 'list',
-  describe: 'listing out all notes',
-  handler: () => {
-    notes.listNotes()
-  }
-})
+program
+.command('read')
+.requiredOption('-t, --title <type>', 'Title of the note')
+.description('You can read a particular note')
+.action(cmd => {
+  notes.readNote(cmd.title)
+});
 
-yargs.command( {
-  command: 'read',
-  describe: 'Read a note',
-  builder: {
-    t: {
-      describe: "Read a particular note.",
-      demandOption: true,
-      type: 'string'
-    }
-  },
-  handler: (argv) => {
-    notes.readNote(argv.t)
-  }
-})
-
-
-yargs.parse()
+program.parse(process.argv);
