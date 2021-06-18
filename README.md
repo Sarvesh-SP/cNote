@@ -20,7 +20,7 @@
 ## Installation:
 
 - Install [Node.js](https://nodejs.org/en/),
-- Clone this repo: `git clone https://github.com/Ythosa/whynote`,
+- Clone this repo: `git clone https://github.com/Sarvesh-SP/cNote`,
 - Install dependences by writing in console: `npm install`,
 - Setup module by writing in console: `npm link --force`,
 - Done, you can use it from your `cmd`.
